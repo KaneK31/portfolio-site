@@ -26,6 +26,7 @@
     </div>
 </div>
 
+
 <div class="container my-5 bg-dark text-white p-4 rounded" style="max-width: 1000px;">
 
     <h2 class="text-center my-4">Featured Projects</h2>
@@ -49,12 +50,14 @@
                 <div class="d-flex flex-column flex-md-row align-items-center justify-content-center"
                      style="gap: 1.5rem;">
                     <a href="{% url 'project_detail' project.project_slug %}"
-                       class="d-flex align-items-center justify-content-center"
-                       style="max-height: 250px; max-width: 250px;">
+                       class="d-flex flex-column align-items-center justify-content-center text-decoration-none">
                         <img src="{{ project.project_thumbnail.url }}"
                              class="img-fluid rounded"
-                             style="max-height: 100%; max-width: 100%; object-fit: contain;"
+                             style="max-height: 250px; max-width: 250px; object-fit: contain;"
                              alt="{{ project.project_name }}">
+                        <small class="text-white mt-2">
+                            <i class="fas fa-eye"></i> Click to view details
+                        </small>
                     </a>
 
                     <div class="text-start text-white">
@@ -72,6 +75,33 @@
 
 <div class="text-center my-4">
     <a href="/projects/" class="btn btn-outline-primary btn-lg">View All Projects</a>
+</div>
+
+<!-- Contact Section -->
+<div class="container my-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h3 class="mb-0">Get In Touch</h3>
+        </div>
+        <div class="card-body text-center">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="mailto:your.kanekerr6@gmail.com " class="btn btn-outline-primary">
+                            <i class="fas fa-envelope"></i> Kanekerr6@gmail.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/kane-kerr-50a011311/" class="btn btn-outline-primary"
+                           target="_blank">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/KaneK31" class="btn btn-outline-primary" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
