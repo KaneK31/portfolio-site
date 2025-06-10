@@ -13,3 +13,6 @@ class Projects(models.Model):
     project_slug = models.SlugField(unique=True, blank=True)
     project_feature = models.BooleanField(default=False)
     project_thumbnail = models.ImageField(null=True, upload_to='portfolio/images/', blank=True)
+    project_screenshot1 = models.ImageField(null=True, upload_to='portfolio/images/', blank=True)
+    project_screenshot2 = models.ImageField(null=True, upload_to='portfolio/images/', blank=True)
+
