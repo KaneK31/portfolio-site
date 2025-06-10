@@ -57,9 +57,10 @@
 
     <!-- Optional Link -->
     {% if project.project_link %}
-    <div class="mb-5 text-center">
-        <a href="{{ project.project_link }}" target="_blank" class="btn btn-primary px-4">Visit Project</a>
+    <div class="mb-5 mt-4 text-center">
+        <a href="{{ project.project_link }}" target="_blank" class="btn btn-primary">Visit Project</a>
     </div>
+
 
     {% endif %}
 
