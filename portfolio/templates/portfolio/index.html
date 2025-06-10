@@ -1,0 +1,79 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block content %}
+<h1 class="display-4 text-center text-primary">Hello, I'm Kane</h1>
+<p class="lead text-center">Backend Developer focused on Django, REST APIs, and problem-solving.</p>
+
+<div class="container my-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            About Me
+        </div>
+        <div class="card-body">
+            <h5 class="card-title fw-bold">I'm Kane Kerr, a backend developer and Computer Science graduate.</h5>
+            <p class="card-text">
+                Passionate about building robust, scalable web applications.
+                With hands-on experience in Django, Flask, and AWS, I specialize in creating RESTful APIs,
+                automating workflows, and designing clean backend architecture. My technical strengths lie in Python,
+                PostgreSQL,
+                and cloud-based infrastructure, and I've delivered projects ranging from file analysis platforms to
+                health tracking apps.
+                I’m always learning, always coding, and committed to writing clean, maintainable code that solves real
+                problems.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5 bg-dark text-white p-4 rounded" style="max-width: 1000px;">
+
+    <h2 class="text-center my-4">Featured Projects</h2>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+
+        <!-- Dots/Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+        </div>
+
+        <!-- Slides -->
+        <div class="carousel-inner">
+            {% for project in featured_projects %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="d-flex flex-column flex-md-row align-items-center justify-content-center"
+                     style="gap: 1.5rem;">
+                    <a href="{% url 'project_detail' project.project_slug %}"
+                       class="d-flex align-items-center justify-content-center"
+                       style="max-height: 250px; max-width: 250px;">
+                        <img src="{{ project.project_thumbnail.url }}"
+                             class="img-fluid rounded"
+                             style="max-height: 100%; max-width: 100%; object-fit: contain;"
+                             alt="{{ project.project_name }}">
+                    </a>
+
+                    <div class="text-start text-white">
+                        <h5 class="fw-bold">{{ project.project_name }}</h5>
+                        <p>{{ project.project_desc }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+
+<div class="text-center my-4">
+    <a href="/projects/" class="btn btn-outline-primary btn-lg">View All Projects</a>
+</div>
+
+
+{% endblock %}
+

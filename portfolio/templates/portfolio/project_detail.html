@@ -1,0 +1,68 @@
+{% extends "portfolio/base.html" %}
+{% block content %}
+
+<div class="container my-5">
+
+    <!-- Project Title -->
+    <h1 class="text-center text-primary mb-4">{{ project.project_name }}</h1>
+
+    <!-- Layout: Image + Overview -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-10">
+            <div class="row align-items-center">
+                <div class="col-md-5 text-center">
+                    <img src="{{ project.project_thumbnail.url }}"
+                         alt="{{ project.project_name }}"
+                         class="img-fluid rounded shadow-sm"
+                         style="max-height: 300px; object-fit: contain;">
+                </div>
+                <div class="col-md-7">
+                    <p class="lead">{{ project.project_long_text|linebreaks }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Key Features (if any) -->
+    {% if project.project_features %}
+    <div class="mb-4">
+        <h5 class="mt-4 fw-semibold">Key Features:</h5>
+        <ul class="list-unstyled small">
+            {% for feature in project.project_features %}
+            <li>• {{ feature }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <!-- Tech Stack -->
+    <div class="mb-4">
+        <h5>Tech Stack:</h5>
+        <p>{{ project.project_tech }}</p>
+    </div>
+
+    <h5 class="mt-4">Screenshots</h5>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <img src="{{ project.project_thumbnail.url }}" class="img-fluid rounded shadow-sm"
+                 alt="Dashboard Screenshot">
+        </div>
+        <div class="col-md-6">
+            <img src="{{ project.project_thumbnail.url }}" class="img-fluid rounded shadow-sm"
+                 alt="Upload Screenshot">
+        </div>
+    </div>
+
+
+    <!-- Optional Link -->
+    {% if project.project_link %}
+    <div class="mb-5 text-center">
+        <a href="{{ project.project_link }}" target="_blank" class="btn btn-primary px-4">Visit Project</a>
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
