@@ -6,9 +6,9 @@ from django.http import JsonResponse
 
 # Create your views here.
 
-    def index(request):
-        featured_projects = Projects.objects.filter(project_feature=True)[:3]
-        return render(request, "portfolio/index.html", {"featured_projects": featured_projects})
+def index(request):
+    featured_projects = Projects.objects.filter(project_feature=True)[:3]
+    return render(request, "portfolio/index.html", {"featured_projects": featured_projects})
 
 
 def project_detail(request, slug):
